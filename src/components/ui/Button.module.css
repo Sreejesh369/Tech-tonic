@@ -1,0 +1,76 @@
+.btn {
+  --pad-y: 0.85rem;
+  --pad-x: 1.5rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: var(--pad-y) var(--pad-x);
+  border-radius: 100px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  isolation: isolate;
+  transition: transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+}
+
+.arrow {
+  display: inline-flex;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.btn:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* ---- Primary ---- */
+.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, var(--shadow-sm);
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px var(--accent-line), 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+}
+
+/* ---- Ghost ---- */
+.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+}
+
+.ghost:hover {
+  transform: translateY(-2px);
+  border-color: var(--text-2);
+  background: var(--surface);
+}
+
+/* ---- Text ---- */
+.text {
+  padding-inline: 0;
+  background: transparent;
+  color: var(--text-1);
+  border-radius: 4px;
+}
+
+.text:hover {
+  color: var(--accent-text);
+}

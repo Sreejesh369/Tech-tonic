@@ -1,0 +1,10 @@
+.band {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1.5vw, 1.1rem);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  border-block: 1px solid var(--line);
+  background: var(--bg-1);
+  overflow: hidden;
+}

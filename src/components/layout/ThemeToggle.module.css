@@ -1,0 +1,23 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 100px;
+  border: 1px solid var(--line);
+  color: var(--text-1);
+  background: var(--surface);
+  transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+
+.toggle:hover {
+  border-color: var(--line-strong);
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.icon {
+  display: inline-flex;
+}

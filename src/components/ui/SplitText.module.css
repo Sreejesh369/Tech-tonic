@@ -1,0 +1,21 @@
+.line {
+  display: block;
+}
+
+.word {
+  display: inline-flex;
+  overflow: hidden;
+  vertical-align: top;
+  /* keeps descenders from clipping */
+  padding-bottom: 0.04em;
+  margin-bottom: -0.04em;
+}
+
+.inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+.accent {
+  color: var(--accent-text);
+}

@@ -1,0 +1,14 @@
+.canvasWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* fade the scene into the layout edges for a cinematic blend */
+  -webkit-mask-image: radial-gradient(ellipse 115% 115% at 60% 46%, #000 60%, transparent 100%);
+  mask-image: radial-gradient(ellipse 115% 115% at 60% 46%, #000 60%, transparent 100%);
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+}

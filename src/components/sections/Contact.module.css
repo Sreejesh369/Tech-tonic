@@ -1,0 +1,234 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--accent-text);
+  letter-spacing: 0.1em;
+}
+
+.title {
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  margin-bottom: 1.75rem;
+}
+
+.lead {
+  margin-bottom: 2.5rem;
+}
+
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding-left var(--dur) var(--ease-out);
+}
+
+.channel:hover {
+  padding-left: 0.5rem;
+}
+
+.channelLabel {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.channelValue {
+  font-size: var(--fs-body);
+  color: var(--text);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.channel:hover .channelValue {
+  color: var(--accent-text);
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.social {
+  font-size: var(--fs-xs);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  color: var(--text-1);
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.social:hover {
+  border-color: var(--accent-line);
+  color: var(--accent-text);
+}
+
+/* ---- Form ---- */
+.formWrap {
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: var(--fs-sm);
+  transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--text-3);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-line);
+  background: var(--bg-2);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.5;
+}
+
+.budgets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.budget {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: var(--fs-xs);
+  color: var(--text-1);
+  background: var(--bg-1);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+
+.budget:hover {
+  border-color: var(--line-strong);
+}
+
+.budgetActive {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.submit {
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+/* ---- Success ---- */
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  min-height: 360px;
+  justify-content: center;
+}
+
+.successMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  color: var(--accent-text);
+}
+
+.successTitle {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+}
+
+.successText {
+  color: var(--text-1);
+  max-width: 36ch;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

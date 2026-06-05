@@ -1,0 +1,35 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  max-width: 60ch;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--accent-text);
+  letter-spacing: 0.1em;
+}
+
+.title {
+  font-size: var(--fs-h2);
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  margin-top: 0.25rem;
+}

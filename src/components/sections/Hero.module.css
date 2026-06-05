@@ -1,0 +1,265 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 72px;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Ambient ray light wash — above the tunnel, below the scrim & content */
+.rays {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fade {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Keeps the text column on clean black while the terrain stays visible
+   toward the right — so the lead copy never fights the mesh behind it. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* keep the left text column on clean black; let the crystal glow on the right */
+  background: linear-gradient(
+      95deg,
+      var(--bg) 34%,
+      color-mix(in srgb, var(--bg) 60%, transparent) 56%,
+      transparent 78%
+    ),
+    linear-gradient(to bottom, var(--bg) 0%, transparent 14%);
+}
+
+/* ---- Technical viewfinder frame ---- */
+.frame {
+  position: absolute;
+  top: clamp(5rem, 9vh, 6.5rem);
+  right: clamp(1rem, 2.5vw, 2rem);
+  bottom: clamp(1.25rem, 2.5vw, 2rem);
+  left: clamp(1rem, 2.5vw, 2rem);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: var(--line-strong);
+  border-style: solid;
+  border-width: 0;
+}
+
+.tl {
+  top: 0;
+  left: 0;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+.tr {
+  top: 0;
+  right: 0;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+.bl {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+.br {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+.fLabel {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.fTopLeft {
+  top: -2px;
+  left: 34px;
+}
+.fTopRight {
+  top: -2px;
+  right: 34px;
+}
+.fBotLeft {
+  bottom: -2px;
+  left: 34px;
+}
+.fBotRight {
+  bottom: -2px;
+  right: 34px;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(2rem, 6vh, 6rem);
+}
+
+.eyebrowRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  color: var(--text-2);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 var(--accent-line);
+  animation: pulse 2.4s var(--ease-out) infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--accent-line);
+  }
+  70% {
+    box-shadow: 0 0 0 7px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.headline {
+  font-size: var(--fs-display);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  max-width: 16ch;
+  margin-bottom: 2rem;
+  /* bg-colored halo keeps the headline legible where it meets the 3D object */
+  text-shadow: 0 0 26px var(--bg), 0 0 12px var(--bg);
+}
+
+.lead {
+  margin-bottom: 2.75rem;
+  color: var(--text-1);
+  max-width: 52ch;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.trust {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.sep {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.scrollCue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text-2);
+}
+
+.scrollText {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.scrollTrack {
+  width: 22px;
+  height: 34px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.scrollDot {
+  width: 3px;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+@media (max-width: 920px) {
+  .scrollCue {
+    display: none;
+  }
+  .headline {
+    max-width: 100%;
+  }
+  .fLabel {
+    display: none;
+  }
+}
